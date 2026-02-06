@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Chandan ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:"Baloo 2",cursive;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle at top,#1b1f3b,#090a1a);
+    color:white;
+}
+
+/* stars */
+body::before{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background-image:radial-gradient(white 1px,transparent 2px);
+    background-size:60px 60px;
+    animation:stars 40s linear infinite;
+    opacity:.5;
+}
+@keyframes stars{to{transform:translate(-60px,-60px)}}
+
+/* moon */
+.moon{
+    position:fixed;
+    top:40px;
+    right:60px;
+    width:90px;
+    height:90px;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 0 40px white;
+}
+
+/* card */
+.card{
+    width:360px;
+    background:rgba(255,255,255,.97);
+    border-radius:28px;
+    padding:30px;
+    text-align:center;
+    color:#ff4fa3;
+    box-shadow:0 20px 60px rgba(255,105,180,.3);
+    position:relative;
+    z-index:2;
+}
+
+h2,h3{margin-bottom:15px}
+p{font-size:15px;line-height:1.6}
+
+.hidden{display:none}
+
+/* buttons */
+.buttons{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    height:60px;
+}
+
+button{
+    border:none;
+    padding:12px 22px;
+    border-radius:30px;
+    font-size:15px;
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.yes{
+    background:#ff4fa3;
+    color:white;
+}
+
+.no{
+    background:#ddd;
+    position:relative;
+}
+
+/* anime hug */
+.anime-hug{
+    width:220px;
+    border-radius:18px;
+    margin:15px auto;
+    box-shadow:0 8px 25px rgba(255,105,180,.4);
+}
+
+/* hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    pointer-events:none;
+    animation:rise 3s linear forwards;
+}
+@keyframes rise{
+    to{transform:translateY(-110vh);opacity:0}
+}
+
+/* shooting stars */
+.star{
+    position:fixed;
+    width:3px;
+    height:3px;
+    background:white;
+    box-shadow:0 0 10px white;
+    pointer-events:none;
+    animation:shoot 1s linear forwards;
+}
+@keyframes shoot{
+    to{transform:translate(400px,400px);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<div class="moon"></div>
+
+<div class="card">
+
+<!-- Screen 1 -->
+<div id="s1">
+    <h2>Chandan 💌</h2>
+    <h3>Will you be my Valentine? 🌸</h3>
+    <div class="buttons">
+        <button class="yes" onclick="go(1)">Yes ❤️</button>
+        <button class="no" id="noBtn">No 😢</button>
+    </div>
+</div>
+
+<!-- Screen 2 -->
+<div id="s2" class="hidden">
+    <h3>Are you really really sure, Chandan? 🥺</h3>
+    <button class="yes" onclick="go(2)">Yes baba yes 💖</button>
+</div>
+
+<!-- Screen 3 -->
+<div id="s3" class="hidden">
+    <img class="anime-hug"
+         src="https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif"
+         alt="anime hug">
+    <p>
+        <!-- From the moment you entered my life,<br>
+        everything feels softer and brighter.<br>
+        Your smile is my peace,<br>
+        your laugh is my favorite song ✨<br><br>
+        I just want forever with you ❤️ -->
+		With you, everything feels easier.<br> 
+Calmer. Brighter. Lighter.<br>
+Your smile gives me peace, and your laugh is still my favorite sound ✨<br><br>
+
+I don’t want anything temporary.<br>
+No “maybe,” no “someday.”<br>
+I want you for the long run, for life❤️ <br>
+
+Just your hand in mine… today, tomorrow, forever.
+    </p>
+    <button class="yes" onclick="go(3)">One more thing… 💍</button>
+</div>
+
+<!-- Screen 4 -->
+<div id="s4" class="hidden">
+    <h3>Under this moon & stars 🌙</h3>
+    <h3>What do you say? Will you stay with me forever? 💖</h3>
+    <div class="buttons">
+        <button class="yes" onclick="accept()">Of course 💖</button>
+        <button class="no" onclick="think()">Will think 🤔</button>
+    </div>
+</div>
+
+<!-- Screen 5A -->
+<div id="s5a" class="hidden">
+    <h2>💍 My Love…</h2>
+    <p>
+        I love you more than words can ever say.<br>
+        Stay with me, walk with me,<br>
+        and let’s make this life beautiful together ❤️✨
+    </p>
+</div>
+
+<!-- Screen 5B -->
+<div id="s5b" class="hidden">
+    <p>
+        <!-- Ye kya baat hui madam 😔<br>
+        Aapko pyaar hajam nahi hota kya?<br>
+        Itnaaa saara pyaar main rakha hoon<br>
+        aapke liye, dil mein poora<br>
+        bhaar-bhaar ke 💔 -->
+		
+		Ye kya baat hui madam 😔<br>
+Aapko humari mohabbat bhi hajam nahi hoti kya?<br>
+
+Itnaaa saara pyaar sambhaal ke rakha hai maine,<br>
+dil ko poora bhar-bhar ke…<br>
+sirf aapke naam ki amanat bana ke💔<br><br>
+
+Thodi si jagah toh de do apni zindagi mein,<br>
+warna ye dil roz shikayat karega<br>
+"itni saari mohabbat lekar jaaun toh jaaun kahan?" ❤️
+    </p>
+    <button class="yes" onclick="accept()">
+        Yes,My love,<br>
+         I love you ❤️<br>
+        and from now I am only yours<br>
+        not by words, but by soul
+    </button>
+</div>
+
+</div>
+
+<script>
+const screens=[s1,s2,s3,s4,s5a,s5b];
+const noBtn=document.getElementById("noBtn");
+const card=document.querySelector(".card");
+let moved=false;
+
+/* no escape */
+function escape(){
+    if(!moved){noBtn.style.position="absolute";moved=true;}
+    noBtn.style.left=Math.random()*(card.offsetWidth-80)+"px";
+    noBtn.style.top=Math.random()*(card.offsetHeight-40)+"px";
+}
+noBtn.onmouseenter=escape;
+noBtn.onclick=escape;
+noBtn.ontouchstart=escape;
+
+/* navigation */
+function go(i){
+    screens.forEach(s=>s.classList.add("hidden"));
+    screens[i].classList.remove("hidden");
+}
+
+function accept(){
+    screens.forEach(s=>s.classList.add("hidden"));
+    s5a.classList.remove("hidden");
+    hearts(); stars();
+}
+
+function think(){
+    screens.forEach(s=>s.classList.add("hidden"));
+    s5b.classList.remove("hidden");
+}
+
+/* effects */
+function hearts(){
+    setInterval(()=>{
+        const h=document.createElement("div");
+        h.className="heart";
+        h.innerText="💖";
+        h.style.left=Math.random()*100+"vw";
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),3000);
+    },300);
+}
+function stars(){
+    let c=0;
+    const i=setInterval(()=>{
+        const s=document.createElement("div");
+        s.className="star";
+        s.style.left=Math.random()*100+"vw";
+        document.body.appendChild(s);
+        setTimeout(()=>s.remove(),1000);
+        if(++c>20) clearInterval(i);
+    },150);
+}
+</script>
+
+</body>
+</html>
