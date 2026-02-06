@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For Chandan ❤️</title>
+<title>Dil Se, Cherie❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
 
@@ -129,13 +129,22 @@ button{
 
 <body>
 
+<!-- 🎵 MUSIC FILES -->
+<audio id="lofi" loop>
+    <source src="chupke.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="loveSong" loop>
+    <source src="zara.mp3" type="audio/mpeg">
+</audio>
+
 <div class="moon"></div>
 
 <div class="card">
 
 <!-- Screen 1 -->
 <div id="s1">
-    <h2>Chandan 💌</h2>
+    <h2>RIDDHI 💌</h2>
     <h3>Will you be my Valentine? 🌸</h3>
     <div class="buttons">
         <button class="yes" onclick="go(1)">Yes ❤️</button>
@@ -145,8 +154,8 @@ button{
 
 <!-- Screen 2 -->
 <div id="s2" class="hidden">
-    <h3>Are you really really sure, Chandan? 🥺</h3>
-    <button class="yes" onclick="go(2)">Yes baba yes 💖</button>
+    <h3>Are you really really sure, Jaani? 🥺</h3>
+    <button class="yes" onclick="go(2)">Yes gulu yes 💖</button>
 </div>
 
 <!-- Screen 3 -->
@@ -229,6 +238,15 @@ const noBtn=document.getElementById("noBtn");
 const card=document.querySelector(".card");
 let moved=false;
 
+/* 🎵 MUSIC */
+const lofi=document.getElementById("lofi");
+const loveSong=document.getElementById("loveSong");
+
+lofi.volume=0.25;      // soft background
+loveSong.volume=0.6;  // louder romantic
+
+let musicStarted=false;
+
 /* no escape */
 function escape(){
     if(!moved){noBtn.style.position="absolute";moved=true;}
@@ -240,16 +258,42 @@ noBtn.onclick=escape;
 noBtn.ontouchstart=escape;
 
 /* navigation */
+/*function go(i){
+    screens.forEach(s=>s.classList.add("hidden"));
+    screens[i].classList.remove("hidden");
+} */
 function go(i){
+
+    // start lofi on first interaction
+    if(!musicStarted){
+        lofi.play().catch(()=>{});
+        musicStarted=true;
+    }
+
     screens.forEach(s=>s.classList.add("hidden"));
     screens[i].classList.remove("hidden");
 }
 
-function accept(){
+/* function accept(){
     screens.forEach(s=>s.classList.add("hidden"));
     s5a.classList.remove("hidden");
     hearts(); stars();
+} */
+function accept(){
+    screens.forEach(s=>s.classList.add("hidden"));
+    s5a.classList.remove("hidden");
+
+    // stop lofi
+    lofi.pause();
+    lofi.currentTime=0;
+
+    // play romantic song
+    loveSong.play().catch(()=>{});
+
+    hearts(); 
+    stars();
 }
+
 
 function think(){
     screens.forEach(s=>s.classList.add("hidden"));
