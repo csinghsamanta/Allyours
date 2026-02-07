@@ -10,6 +10,8 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
+/* ===== DREAMY ROMANTIC NIGHT SKY ===== */
+
 body{
     font-family:"Baloo 2",cursive;
     height:100vh;
@@ -17,34 +19,100 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:radial-gradient(circle at top,#1b1f3b,#090a1a);
     color:white;
+    position:relative;
+
+    /* ✨ Darker romantic bluish night sky */
+    background: linear-gradient(
+        to bottom,
+        #05081a 0%,     /* almost black top, deep navy */
+        #0c1350 50%,    /* very dark bluish middle */
+        #161f4a 100%    /* deep bluish-purple bottom */
+    );
 }
 
-/* stars */
+
+
+
+/* ⭐ MANY STARS (multiple layers for depth) */
 body::before{
     content:"";
     position:absolute;
-    width:200%;
-    height:200%;
-    background-image:radial-gradient(white 1px,transparent 2px);
-    background-size:60px 60px;
-    animation:stars 40s linear infinite;
-    opacity:.5;
-}
-@keyframes stars{to{transform:translate(-60px,-60px)}}
+    inset:0;
 
-/* moon */
+    background:
+        radial-gradient(2px 2px at 10% 20%, white, transparent),
+        radial-gradient(2px 2px at 20% 70%, white, transparent),
+        radial-gradient(1.5px 1.5px at 40% 30%, white, transparent),
+        radial-gradient(2px 2px at 70% 15%, white, transparent),
+        radial-gradient(1.5px 1.5px at 85% 60%, white, transparent),
+        radial-gradient(2px 2px at 60% 80%, white, transparent),
+        radial-gradient(2px 2px at 30% 90%, white, transparent),
+        radial-gradient(1.5px 1.5px at 55% 50%, white, transparent),
+        radial-gradient(2px 2px at 75% 40%, white, transparent),
+        radial-gradient(1.5px 1.5px at 95% 25%, white, transparent);
+
+    animation:twinkle 2s infinite alternate;
+    opacity:.9;
+}
+
+@keyframes twinkle{
+    from{opacity:.4}
+    to{opacity:1}
+}
+
+/* ☁️ floating clouds */
+body::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(circle at 20% 85%, rgba(255,255,255,.1), transparent 60%),
+        radial-gradient(circle at 70% 90%, rgba(255,255,255,.08), transparent 60%);
+
+    animation:cloudMove 60s linear infinite;
+}
+
+@keyframes cloudMove{
+    from{transform:translateX(0)}
+    to{transform:translateX(-300px)}
+}
+
+/* 🌙 brighter glowing moon */
 .moon{
     position:fixed;
-    top:40px;
-    right:60px;
-    width:90px;
-    height:90px;
-    background:white;
+    top:50px;
+    right:70px;
+    width:120px;
+    height:120px;
     border-radius:50%;
-    box-shadow:0 0 40px white;
+    background:radial-gradient(circle,#fff 60%,#eaeaea 70%,transparent 75%);
+
+    box-shadow:
+        0 0 40px #fff,
+        0 0 100px rgba(255,255,255,.8),
+        0 0 180px rgba(255,255,255,.5);
+
+    animation:moonGlow 3s ease-in-out infinite alternate;
 }
+
+@keyframes moonGlow{
+    from{transform:scale(1)}
+    to{transform:scale(1.06)}
+}
+
+/* 🌄 aesthetic mountains silhouette */
+.scene{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:160px;
+    background:linear-gradient(to top,#050710,transparent);
+    z-index:1;
+}
+
+
 
 /* card */
 .card{
@@ -299,6 +367,7 @@ function accept(){
 
     hearts(); 
     stars();
+	floatRiddhi(); // <--- floating RIDDHI words
 }
 
 
@@ -333,6 +402,46 @@ function stars(){
         if(++c>20) clearInterval(i);
     },150);
 }
+function floatRiddhi(){
+    setInterval(()=>{
+        const r = document.createElement("div");
+        r.className = "heart"; // reuse heart styles
+        r.innerText = "RIDDHI ❤️";
+        r.style.position = "fixed";
+        r.style.fontSize = (20 + Math.random()*18) + "px"; // random size
+        r.style.left = Math.random()*100 + "vw"; // random horizontal
+        r.style.bottom = (-20 - Math.random()*30) + "px"; // random start below screen
+        r.style.color = "rgba(255,100,180," + (0.5 + Math.random()*0.4) + ")"; // soft pinkish glow
+        r.style.fontWeight = "700";
+
+        document.body.appendChild(r);
+
+        // animate upwards with gentle horizontal drift and rotation
+        r.animate([
+            { transform: `translateY(0px) translateX(0px) rotate(0deg)`, opacity: 1 },
+            { 
+                transform: `translateY(-${100 + Math.random()*20}vh) translateX(${(Math.random()-0.5)*80}px) rotate(${(Math.random()-0.5)*60}deg)`, 
+                opacity: 0 
+            }
+        ], {
+            duration: 3500 + Math.random()*1000, // random duration for variety
+            easing: "ease-out",
+        });
+
+        // remove after animation
+        setTimeout(() => r.remove(), 4000);
+    }, 1200); // one “RIDDHI” every 1.2s
+}
+
+setInterval(()=>{
+    const s=document.createElement("div");
+    s.className="star";
+    s.style.top=Math.random()*30+"vh";
+    s.style.left=Math.random()*40+"vw";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),1000);
+},5000);
+
 </script>
 
 </body>
