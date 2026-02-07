@@ -132,15 +132,7 @@ p{font-size:15px;line-height:1.6}
 
 .hidden{display:none}
 
-/* buttons */
-.buttons{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    gap:14px;
-    height:60px;
-}
-
+/* ===== BUTTON STYLES ===== */
 button{
     border:none;
     padding:12px 22px;
@@ -148,7 +140,52 @@ button{
     font-size:15px;
     font-family:inherit;
     cursor:pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
 }
+
+/* YES buttons (pink, primary) */
+.yes{
+    background:#ff4fa3;
+    color:white;
+    box-shadow: 0 8px 25px rgba(255,105,180,0.4);
+}
+
+.yes:hover{
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(255,105,180,0.6);
+}
+
+/* NO buttons (gray, secondary) */
+.no{
+    background:#ddd;
+    color:#333;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.no:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* FINAL YES button (big, standout) */
+.final-btn{
+    background: #ff4fa3;
+    color: white;
+    font-size: 16px;
+    padding: 15px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255,105,180,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+
+.final-btn:hover{
+    transform: scale(1.08);
+    box-shadow: 0 14px 35px rgba(255,105,180,0.6);
+}
+
 
 .yes{
     background:#ff4fa3;
@@ -189,6 +226,24 @@ button{
     pointer-events:none;
     animation:shoot 1s linear forwards;
 }
+
+.final-btn{
+    background: #ff4fa3; /* same pink as other yes buttons */
+    color: white;
+    font-size: 16px;
+    padding: 15px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255,105,180,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+
+.final-btn:hover{
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(255,105,180,0.6);
+}
+
 @keyframes shoot{
     to{transform:translate(400px,400px);opacity:0}
 }
@@ -287,7 +342,7 @@ Just your hand in mine… today, tomorrow, forever.
 		Arreyyyy, ye kya baat hui madam 😔<br>
 Aapko humari mohabbat bhi hajam nahi hoti kya?<br>
 
-Itnaaa saara pyaar sambhaal ke rakha hai maine,<br>
+Itnaaa saara pyaar sambhaal ke rakha hai maine,
 dil ko poora bhar-bhar ke…<br>
 sirf aapke naam ki amanat bana ke💔<br><br>
 
@@ -295,12 +350,13 @@ Thodi si jagah toh de do apni zindagi mein,<br>
 warna ye dil roz shikayat karega<br>
 "itni saari mohabbat lekar jaaun toh jaaun kahan?" ❤️
     </p>
-    <button class="yes" onclick="accept()">
-        Yes,My love,<br>
-         I love you ❤️<br>
-        and from now I am only yours<br>
-        not by words, but by soul
-    </button>
+   <button class="yes final-btn" onclick="accept()">
+    Yes, My love ❤️<br>
+    I love you<br>
+    and from now I am only yours<br>
+    not by words, but by soul
+</button>
+
 </div>
 
 </div>
